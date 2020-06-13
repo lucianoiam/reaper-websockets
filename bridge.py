@@ -59,7 +59,7 @@ if __name__ == '__main__':
     parser.add_argument('-hp', '--http-port', help='HTTP server port',
         type=int, default=9000)
     parser.add_argument('-hr', '--http-root', help='path to static files',
-        type=str, default='./example-client')
+        type=str, default='./www')
     parser.add_argument('-hc', '--http-cache', help='enable cache headers',
         type=str, default='yes')
     args = parser.parse_args()
