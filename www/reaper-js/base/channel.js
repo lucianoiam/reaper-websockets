@@ -49,7 +49,9 @@ export class MessageChannel {
 			this._socket.onerror = (error) => this.onError(error);
 
 			this._socket.onmessage = (event) => {
-				event.data.arrayBuffer().then((arrayBuffer) => {
+				// https://stackoverflow.com/questions/15341912/how-to-go-from-blob-to-arraybuffer
+				// event.data.arrayBuffer()
+				new Response(event.data).arrayBuffer().then((arrayBuffer) => {
 					const packet = new OSC.Packet()
 					packet.unpack(new DataView(arrayBuffer));
 
