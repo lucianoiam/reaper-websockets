@@ -33,7 +33,7 @@ import ReaperClient from '/reaper-js/client.js';
 	async function main() {
 		const reaper = new ReaperClient();
 
-		reaper.on('message', (path, ...args) => console.log(`${path} ${args}`));
+		reaper.on('osc', (path, ...args) => console.log(`${path} ${args}`));
 		reaper.on('connected', (connected) => log(`Connected: ${connected}`));
 		reaper.on('error', (connected) => log(`Error: ${connected}`));
 		

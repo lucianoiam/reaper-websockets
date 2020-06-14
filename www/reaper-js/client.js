@@ -81,10 +81,16 @@ export default class ReaperClient extends Component {
 		this._setConnected(false);
 	}
 
+	// Low-level OSC interface
+
+	sendOsc (path, ...args) {
+		this.channel.send(path, ...args);
+	}
+
 	// Overriden Component methods
 
 	handleOsc (path, ...args) {
-		this.notifyObservers('message', path, ...args);
+		this.notifyObservers('osc', path, ...args);
 
 		for (const component of this._components) {
 			if (component.handleOsc(path, ...args)) {
