@@ -6,6 +6,13 @@ surface and web-based client implementations.
 Includes a JavaScript port of https://github.com/lucianoiam/pyreaosc for
 interacting with the REAPER mixer through an easy to use object-oriented API.
 
+#### Features
+
+- Transport play and record status
+- Track volume, pan and mute
+- FX bypass
+- FX parameter values
+
 #### Quick start
 
 - REAPER → Preferences → Control/OSC/web → Add → OSC → Mode "Local port"
