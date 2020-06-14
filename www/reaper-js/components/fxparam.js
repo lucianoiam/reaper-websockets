@@ -24,7 +24,7 @@ export class FxParameter extends Component {
 		super(parent);
 		this._n = n;
 		this._name = name;
-		this._value = undefined;
+		this._value = value;
 	}
 
 	get fx () {

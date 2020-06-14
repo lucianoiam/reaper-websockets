@@ -2,3 +2,13 @@ body {
 	background: #000;
 	color: #fff;
 }
+
+#control {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+}
+
+#output {
+	margin-top: 50px;
+}

@@ -20,45 +20,43 @@ import { ReaperClient } from '/reaper-js/client.js';
 
 (() => {
 
-	const output = document.getElementById('output');
+	const dom = ['output', 'vol', 'apply'].reduce((dom, id) => {
+		dom[id] = document.getElementById(id);
+		return dom;
+	}, {});
 
 	function log (message) {
-		output.innerHTML += message + '\n';
+		dom.output.innerHTML += message + '\n';
         document.body.scrollTop = document.body.scrollHeight;
 	}
 
 	async function main() {
 		const reaper = new ReaperClient();
 
-		reaper.on('connected', (connected) => {
-			log(`REAPER connected: ${connected}`);
-		});
-
-		reaper.on('message', (path, ...args) => {
-			console.log(`${path} ${args}`);
-		});
-
-		reaper.transport.on('playing', (playing) => {
-			log(`REAPER playing: ${playing}`);
-		});
+		reaper.on('message', (path, ...args) => console.log(`${path} ${args}`));
+		reaper.on('connected', (connected) => log(`Connected: ${connected}`));
+		reaper.on('error', (connected) => log(`Error: ${connected}`));
+		
+		reaper.transport.on('playing', (playing) => log(`Playing: ${playing}`));
+		reaper.transport.on('recording', (recording) => log(`Recording: ${recording}`));
 
 		reaper.mixer.on('ready', () => {
 			for (const track of reaper.mixer.tracks) {
-				log(`Track name=${track.name}`)
+				log(`Track #${track.n} name=${track.name}`)
 
 				track.on('volume', (value) => {
 					log(`Volume ${value}`);
 				});
 
 				for (const fx of track.fx) {
-					log(`  Fx n=${fx.n} name=${fx.name}`);
+					log(`  Fx #${fx.n} name=${fx.name}`);
 
 					fx.on('bypass', (value) => {
 						log(`Bypass ${value}`);
 					});
 
 					for (const param of fx.parameters) {
-						log(`    Param n=${param.n} val=${param.value}`);
+						log(`    Param #${param.n} val=${param.value}`);
 
 						param.on('value', (value) => {
 							log(`Parameter ${value}`);
@@ -69,6 +67,10 @@ import { ReaperClient } from '/reaper-js/client.js';
 		});
 
 		await reaper.connect();
+
+		dom.apply.addEventListener('click', (ev) => {
+			reaper.mixer.getTrack(1).volume = parseFloat(dom.vol.value);
+		});
 	}
 
 	main();
