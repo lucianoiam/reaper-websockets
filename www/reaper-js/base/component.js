@@ -16,7 +16,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-import { Observable } from './observable.js';
+import Observable from './observable.js';
 
 export class Component extends Observable {
 

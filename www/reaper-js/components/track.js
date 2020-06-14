@@ -17,9 +17,9 @@
  */
 
 import { ChildComponent } from '../base/component.js';
-import { Fx } from './fx.js';
+import Fx from './fx.js';
 
-export class Track extends ChildComponent {
+export default class Track extends ChildComponent {
 
 	constructor (parent, n, name) {
 		super(parent);

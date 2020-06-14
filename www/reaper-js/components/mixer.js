@@ -17,9 +17,9 @@
  */
 
 import { Component } from '../base/component.js';
-import { Track } from './track.js';
+import Track from './track.js';
 
-export class Mixer extends Component {
+export default class Mixer extends Component {
 
 	constructor (channel) {
 		super(channel);

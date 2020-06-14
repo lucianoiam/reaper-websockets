@@ -18,7 +18,7 @@
 
 import { Component } from '../base/component.js';
 
-export class Transport extends Component {
+export default class Transport extends Component {
 
 	constructor (channel) {
 		super(channel);

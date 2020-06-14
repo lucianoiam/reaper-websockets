@@ -18,7 +18,7 @@
 
 import loadScript from './script.js';
 
-export class MessageChannel {
+export default class MessageChannel {
 
 	constructor (hostname, port, handlers) {
 		this._hostname = hostname;

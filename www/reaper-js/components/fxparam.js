@@ -18,7 +18,7 @@
 
 import { ChildComponent } from '../base/component.js';
 
-export class FxParameter extends ChildComponent {
+export default class FxParameter extends ChildComponent {
 
 	constructor (parent, n, name, value) {
 		super(parent);
