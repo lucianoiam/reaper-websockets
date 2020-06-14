@@ -20,17 +20,13 @@ import { Observable } from './observable.js';
 
 export class Component extends Observable {
 
-	constructor (parent) {
-		super();
-		this._parent = parent;
-	}
-
-	get parent () {
-		return this._parent;
+	constructor (channel) {
+		super(null);
+		this._channel = channel;
 	}
 
 	get channel () {
-		return this._parent.channel;
+		return this._channel;
 	}
 
 	on (event, callback) {
@@ -64,15 +60,19 @@ export class Component extends Observable {
 
 }
 
-export class RootComponent extends Component {
+export class ChildComponent extends Component {
 
-	constructor (channel) {
-		super(null);
-		this._channel = channel;
+	constructor (parent) {
+		super();
+		this._parent = parent;
+	}
+
+	get parent () {
+		return this._parent;
 	}
 
 	get channel () {
-		return this._channel;
+		return this._parent.channel;
 	}
 
 }

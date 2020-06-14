@@ -16,9 +16,9 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-import { RootComponent } from '../base/component.js';
+import { Component } from '../base/component.js';
 
-export class Transport extends RootComponent {
+export class Transport extends Component {
 
 	constructor (channel) {
 		super(channel);

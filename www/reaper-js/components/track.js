@@ -16,10 +16,10 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-import { Component } from '../base/component.js';
+import { ChildComponent } from '../base/component.js';
 import { Fx } from './fx.js';
 
-export class Track extends Component {
+export class Track extends ChildComponent {
 
 	constructor (parent, n, name) {
 		super(parent);

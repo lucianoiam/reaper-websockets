@@ -16,7 +16,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-import { RootComponent } from './base/component.js';
+import { Component } from './base/component.js';
 import { MessageChannel } from './base/channel.js';
 import { Mixer } from './components/mixer.js';
 import { Transport } from './components/transport.js';
@@ -25,7 +25,7 @@ function getOption (options, key, defaultValue) {
 	return options ? (key in options ? options[key] : defaultValue) : defaultValue;
 }
 
-export class ReaperClient extends RootComponent {
+export class ReaperClient extends Component {
 
 	constructor (options) {
 		super(new MessageChannel(

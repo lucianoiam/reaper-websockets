@@ -16,9 +16,9 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-import { Component } from '../base/component.js';
+import { ChildComponent } from '../base/component.js';
 
-export class FxParameter extends Component {
+export class FxParameter extends ChildComponent {
 
 	constructor (parent, n, name, value) {
 		super(parent);
