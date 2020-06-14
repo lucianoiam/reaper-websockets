@@ -34,8 +34,8 @@ export default class ReaperClient extends Component {
 		));
 
 		if (getOption(options, 'components', true)) {
-			this._mixer = new Mixer(this.channel);
-			this._transport = new Transport(this.channel);
+			this._mixer = new Mixer(this);
+			this._transport = new Transport(this);
 			this._components = [this._mixer, this._transport];
 		} else {
 			this._components = [];

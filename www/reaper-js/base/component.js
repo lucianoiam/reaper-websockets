@@ -21,7 +21,7 @@ import Observable from './observable.js';
 export class Component extends Observable {
 
 	constructor (channel) {
-		super(null);
+		super();
 		this._channel = channel;
 	}
 
@@ -63,16 +63,12 @@ export class Component extends Observable {
 export class ChildComponent extends Component {
 
 	constructor (parent) {
-		super();
+		super(parent.channel);
 		this._parent = parent;
 	}
 
 	get parent () {
 		return this._parent;
-	}
-
-	get channel () {
-		return this._parent.channel;
 	}
 
 }
