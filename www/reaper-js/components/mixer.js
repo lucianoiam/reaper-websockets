@@ -55,7 +55,7 @@ export default class Mixer extends Component {
 				// create track
 				if (m[0]) {
 					this._tracks.push(new Track(this, trackN, args[0] /* name */));
-					this.notify('tracks')
+					this.notifyPropertyChanged('tracks')
 					return true;
 				}
 			} else {

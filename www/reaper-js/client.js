@@ -106,7 +106,7 @@ export default class ReaperClient extends Component {
 
 	_setConnected (connected) {
 		this._connected = connected;
-		this.notify('connected');
+		this.notifyPropertyChanged('connected');
 	}
 
 }

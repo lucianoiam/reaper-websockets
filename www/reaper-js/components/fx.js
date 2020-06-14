@@ -84,7 +84,7 @@ export default class Fx extends ChildComponent {
 			} else {
 				const param = new FxParameter(this, paramN, null /* name */, args[0] /* value */);
 				this._parameters.push(param);
-				this.notify('parameters');
+				this.notifyPropertyChanged('parameters');
 				return true;
 			}
 		}

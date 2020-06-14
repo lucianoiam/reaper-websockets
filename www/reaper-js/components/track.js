@@ -96,7 +96,7 @@ export default class Track extends ChildComponent {
 			if (m[2] == 'name') {
 				if (args[0]) {
 					this._fx.push(new Fx(this, fxN, args[0] /* name */));
-					this.notify('fx');
+					this.notifyPropertyChanged('fx');
 				}
 			} else {
 				if (this.hasFx(fxN)) {

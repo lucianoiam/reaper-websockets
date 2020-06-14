@@ -33,7 +33,7 @@ export class Component extends Observable {
 		this.addObserver(event, callback);
 	}
 
-	notify (property) {
+	notifyPropertyChanged (property) {
 		this.notifyObservers(property, this['_' + property]);
 	}
 
@@ -43,7 +43,7 @@ export class Component extends Observable {
 			return;
 		}
 		this[key] = value;
-		this.notify(property);
+		this.notifyPropertyChanged(property);
 	}
 
 	sendAction (actionId) {
